@@ -278,6 +278,7 @@
 .gallery-photo {
     width: 100%;
     margin-left: 64px;
+    margin-right: 64px;
     display: flex;
     margin-bottom: 20px;
 }
