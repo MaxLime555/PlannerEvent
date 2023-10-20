@@ -1,0 +1,418 @@
+@font-face {
+    font-family: 'TT Commons';
+    src: url('../fonts/tt-commons/TTCommons-Regular.woff2') format('woff2'),
+         url('../fonts/tt-commons/TTCommons-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Redcollar';
+    src: url('../fonts/redcollar/Redcollar.woff2') format('woff2'),
+         url('../fonts/redcollar/Redcollar.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@media (max-width: 1368px) {
+    .nav__login-button {
+        padding: 15px 20px;
+        margin-left: 70px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Redcollar';
+}
+
+.header {
+    width: 90%;
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo,
+.header__nav {
+    display: flex;
+}
+
+.logo__image {
+    width: 50px;
+    margin: auto 0;
+    margin-right: 35px;
+}
+
+.logo__company-name {
+    white-space: nowrap;
+    margin: auto 0;
+    font-size: 26px;
+    line-height: 31px;
+}
+
+.logo__title {
+    white-space: nowrap;
+    font-size: clamp(32px, 2vw, 64px);
+    font-weight: 100;
+    margin: auto 0;
+    margin-left: 20px;
+}
+
+.logo__title-red {
+    color: #F51B1B;
+}
+
+.nav__current-month {
+    white-space: nowrap;
+    margin-top: auto;
+    padding: 8px 24px;
+    font-size: 24px;
+}
+
+.nav__button {
+    background-color: #EFEFEF;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+    margin: auto 8px 0;
+    cursor: pointer;
+}
+
+.nav__button:hover {
+    background-color: #F51B1B;
+    cursor: pointer;
+}
+
+.nav__login-button {
+    padding: 16px 26px;
+    background-color: #0D0C0C;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: auto;
+    margin-left: 100px;
+    border: none;
+}
+
+.nav__login-button:hover {
+    background-color: #F51B1B;
+    cursor: pointer;
+}
+
+.main {
+    width: 90%;
+    min-width: 1280px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.calendar {
+    width: 100%;
+    min-width: 1280px;
+    max-width: 1920px;
+    display: table;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 20px;
+    margin: 50px auto;
+    table-layout: fixed;
+}
+
+td {
+    width: 12%;
+    height: clamp(80px, 2vh, 140px);
+    max-height: 140px;
+    border: 1px solid #B3B3BC;
+}
+
+.prev-month,
+.next-month {
+    color: #A4A4A4;
+    font-family: 'TT Commons';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+.title-event {
+    cursor: pointer;
+}
+
+
+
+.title-event-text {
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'TT Commons';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    padding: 2px 6px;
+    color: #0D0C0C;
+    background-color: #EFEFEF;
+    border-radius: 8px;
+    text-align: right;
+    line-height: 140%;
+    margin-bottom: 4px;
+    margin-right: 6px;
+    margin-left: 12px;
+    position: relative;
+}
+
+.now-month {
+    font-family: 'TT Commons';
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 2px;
+}
+
+.unactual {
+    color: #B3B3BC;
+}
+
+td {
+    width: 12%;
+    vertical-align: top;
+    border: 1px solid #B3B3BC;
+    background-color: #FFFFFF;
+}
+
+.event {
+    position: absolute;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+
+.container-for-event-info {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 1075px;
+    max-height: 924px;
+    min-height: 500px;
+    min-width: 500px;
+    height: 90%;
+    text-align: center;
+    border-radius: 64px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.close-event {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.event-name {
+    color: #0D0C0C;
+    text-align: center;
+    font-family: 'Redcollar';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    padding-top: 40px;
+}
+
+.description {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+
+.info-event {
+    width: 20%;
+    padding: 16px;
+    border-radius: 24px;
+    background: #FAFAFA;
+    text-align: left;
+    margin-left: 64px;
+}
+
+.event-time {
+    color: #0D0C0C;
+    font-family: 'Redcollar';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 1px solid #EFEFEF;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.event-place {
+    color: #0D0C0C;
+    font-family: 'TT Commons';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.description-text {
+    width: 80%;
+    margin-left: 32px;
+    text-align: left;
+    font-family: 'TT Commons';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    padding-right: 64px;
+}
+
+.members {
+    text-align: left;
+    margin-left: 64px;
+    margin-bottom: 24px;
+    font-family: 'Redcollar';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.person {
+    display: flex;
+    position: relative;
+}
+
+.person-1,
+.person-2,
+.person-3{
+    position: relative;
+}
+
+.person-1{
+    left: 10px;
+    position: absolute;
+}
+
+.person-2{
+    left: 20px;
+    z-index: 5;
+}
+
+.person-3{
+    z-index: 10;
+    left: 0px;
+}
+
+.organizer {
+    text-align: left;
+}
+
+.position {
+    color: #6C27A3;
+    font-family: 'TT Commons';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    padding: 2px 4px;
+    border-radius: 8px;
+    background: #EFDAFC;
+}
+
+.members-people {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 64px;
+    margin-right: 64px;
+    margin-bottom: 20px;
+}
+
+.img__person {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.gallery {
+    padding: 0 64px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.gallery-title {
+    color: #0D0C0C;
+    font-family: 'Redcollar';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+}
+
+.event__invite-login {
+    width: 100%;
+    color: #0D0C0C;
+    font-family: 'Redcollar';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+}
+
+.enter__event {
+    border: none;
+    background-color: #FFFFFF;
+    font-family: 'Redcollar';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: #F51B1B;
+    cursor: pointer;
+}
+
+.gallery-photo {
+    width: 100%;
+    margin-left: 64px;
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.photo {
+    width: 25%;
+    height: 100px;
+    border-radius: 24px;
+    margin-right: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-button,
+.right-button {
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #EFEFEF;
+    margin-left: 8px;
+    cursor: pointer;
+}

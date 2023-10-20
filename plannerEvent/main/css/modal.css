@@ -1,0 +1,338 @@
+@font-face {
+    font-family: 'TT Commons';
+    src: url('../fonts/tt-commons/TTCommons-Regular.woff2') format('woff2'),
+        url('../fonts/tt-commons/TTCommons-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Redcollar';
+    src: url('../fonts/redcollar/Redcollar.woff2') format('woff2'),
+        url('../fonts/redcollar/Redcollar.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-width: 710px;
+    max-height: 618px;
+    min-height: 500px;
+    min-width: 500px;
+    height: 50%;
+    text-align: center;
+    border-radius: 64px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.modal__title {
+    font-family: 'Redcollar';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    position: relative;
+    top: 100px;
+}
+
+.close__button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.container-for-input {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 24px;
+    position: relative;
+}
+
+.input__field,
+.input-name__field,
+.input-password__field,
+.input-repeat__field {
+    display: block;
+    width: 345px;
+    height: 50px;
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.input-name__field {
+    top: -10px;
+}
+
+.input-password__field {
+    top: 65px;
+}
+
+.input-repeat__field {
+    top: 140px;
+}
+
+.label__field,
+.label-name__field,
+.label-password__field,
+.label-repeat__field {
+    display: inline-block;
+    width: 95%;
+    text-align: left;
+    position: absolute;
+    top: 195px;
+    left: 14px;
+    color: #B3B3BC;
+    font-family: 'TT Commons';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.label-name__field {
+    top: 5px;
+}
+
+.label-password__field {
+    top: 80px;
+}
+
+.label-repeat__field {
+    top: 155px;
+}
+
+
+.input__field:focus+.label__field,
+.input__field:valid+.label__field {
+    font-size: 12px;
+    top: 185px;
+    left: 12px;
+}
+
+.continue__button {
+    width: 345px;
+    background-color: #0D0C0C;
+    text-decoration: none;
+    color: #fff;
+    padding: 21px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    top: 290px;
+}
+
+.continue__button:hover {
+    background-color: #F51B1B;
+}
+
+.input-error {
+    border: 2px solid #F51B1B;
+}
+
+.reg__rules {
+    position: absolute;
+    color: #F51B1B;
+    font-family: 'TT Commons';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    top: 120px;
+    left: 0;
+    display: none;
+}
+
+.reg__error-message {
+    position: absolute;
+    color: #F51B1B;
+    font-family: 'TT Commons';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    top: 195px;
+    left: 0;
+    display: none;
+}
+
+.register__button{
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 345px;
+    text-decoration: none;
+    padding: 21px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #EFEFEF;
+    color: #B3B3BC;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #F51B1B;
+    font-family: 'TT Commons';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    position: absolute;
+    width: 345px;
+    text-align: left;
+    top: 235px;
+    left: 0;
+    display: none;
+}
+
+.reg__title {
+    display: inline-block;
+    color: #0D0C0C;
+    text-align: center;
+    font-family: 'Redcollar';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    margin-top: 60px;
+    margin-bottom: 16px;
+}
+
+.modal__info {
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 12px;
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 8px;
+    margin-bottom: 24px;
+}
+
+.warning__image {
+    width: 24px;
+    height: 24px;
+    margin: auto 0;
+    margin-right: 8px;
+}
+
+.warning {
+    color: #0D0C0C;
+    font-family: 'TT Commons';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+
+.place-for-name,
+.place-for-password,
+.place-for-repeat {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid #0D0C0C;
+}
+
+
+
+.close-password__image,
+.close-repeat__image {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 75px;
+    right: 8px;
+    cursor: pointer;
+}
+
+.close-repeat__image {
+    top: 150px;
+}
+
+.open-password__image,
+.open-repeat__image {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 75px;
+    right: 8px;
+    display: none;
+    cursor: pointer;
+}
+
+.open-repeat__image {
+    top: 150px;
+}
+
+
+.input-name__field:focus+.label-name__field,
+.input-name__field:valid+.label-name__field {
+    top: -5px;
+    left: 15px;
+    font-size: 12px;
+}
+
+.input-password__field:focus+.label-password__field,
+.input-password__field:valid+.label-password__field{
+    top: 70px;
+    left: 15px;
+    font-size: 12px;
+}
+
+.input-repeat__field:focus+.label-repeat__field,
+.input-repeat__field:valid+.label-repeat__field{
+    top: 145px;
+    left: 15px;
+    font-size: 12px;
+}
+
+
+.reg-button {
+    width: 345px;
+    text-decoration: none;
+    padding: 21px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 25px;
+    background-color: #EFEFEF;
+    color: #B3B3BC;
+    cursor: not-allowed;
+}
+
+.disabled {
+    background-color: #0D0C0C;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.disabled:hover {
+    background-color: #F51B1B;
+}

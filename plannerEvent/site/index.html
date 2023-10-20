@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Планирование. Список дел. Календарь. Календарный список.">
+    <meta name="description" content="Планировщик событий">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/event.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/congratulation.css">
+    <title>planner event</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <img class="logo__image" src="img/logo.png" alt="logo company" />
+            <p class="logo__company-name">red collar</p>
+            <h1 class="logo__title">planner <span class="logo__title-red">event</span></h1>
+        </div>
+
+        <nav class="header__nav">
+            <p class="nav__current-month" id="currentMonth"></p>
+            <button class="nav__button" id="prevMonth">
+                <img src="img/leftButton.png" alt="левая кнопка" />
+            </button>
+            <button class="nav__button" id="nextMonth">
+                <img src="img/rightButton.png" alt="правая нопка" />
+            </button>
+            <button class="nav__create" id="create" type="button"><img src="img/createEvent.png" alt="создать событие"></button>
+            <img class="nav__avatar" src="img/avatar.png" alt="аватар пользователя" />
+
+            <section class="event" id="event-modal">
+                <div class="container-for-event-info" id="eventModal">
+                    <img class="close-event" id="close-event" src="img/closeButton.png" alt="закрыть">
+                    <h2 class="event-name"></h2>
+                    <div class="description" id="description-event">
+                        <div class="info-event">
+                            <p class="event-time"><br><br></p>
+                            <p class="event-place"></p>
+                        </div>
+                        <p class="description-text"></p>
+                    </div>
+
+                    <h3 class="members">Участники</h3>
+                    <div class="members-people" id="members-people"></div>
+
+                    <div class="gallery">
+                        <h3 class="gallery-title">Галерея</h3>
+                        <div class="control">
+                            <img class="left-button" src="img/leftButton.png" alt="щелкнуть влево" />
+                            <img class="right-button" src="img/rightButton.png" alt="щелкнуть вправо" />
+                        </div>
+                    </div>
+                    <div class="gallery-photo"></div>
+
+                    <button class="enter-event" id="enterEvent">Присоединиться к событию</button>
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <main class="main">
+        <table class="calendar" id="calendar"></table>
+        <section class="create-event" id="createEvent">
+            <div class="create-event__container">
+                <img class="close-button" id="close-create" src="img/closeButton.png" alt="закрыть" />
+                <h2 class="create-event__title">Создание события</h2>
+
+                <form class="create-event__form" autocomplete="off">
+                    <section class="form__info">
+                        <div class="container-for-input">
+                            <input class="info__name" type="text" id="name-event" required />
+                            <label class="name-label" for="name-event">Название<span class="star">*</span></label>
+                        </div>
+
+                        <div class="container-for-input">
+                            <textarea class="info__description" type="text" id="description-event-text" required></textarea>
+                            <label class="name-label">Описание<span class="star">*</span></label>
+                        </div>
+
+                        <div class="container-for-input">
+                            <div class="selected-items" id="selectedItems">
+                                <select class="info__members" id="members-event" required multiple></select>
+                                <p class="select-members" id="selectedText">Участники</p>
+                            </div>
+                            <div class="options" id="options"></div>
+                        </div>
+
+                        <input class="info__photos" id="info__photos" type="text" placeholder="Выберите фото или перетащите сюда" />
+                    </section>
+
+                    <section class="form__details">
+                        <div class="details__time">
+                            <div class="container-for-input">
+                                <input class="details__start" type="text" id="start-event" required />
+                                <label class="time-label" id="start-label" for="start-event">Начало<span class="star">*</span></label>
+                            </div>
+                            <div class="container-for-input">
+                                <input class="details__end" type="text" id="end-event" placeholder="" />
+                                <label class="time-label" id="end-label" for="end-event">Конец</label>
+                            </div>
+                        </div>
+                        <div class="container__calendar" id="containerCalendar">
+                            <div class="calendar__buttons">
+                                <button class="nav__button-event" id="prevMonth-event" type="button">
+                                    <img src="img/leftButton.png" alt="левая кнопка" />
+                                </button>
+                                <p class="nav__current-month-event" id="currentMonth-event"></p>
+                                <button class="nav__button-event" id="nextMonth-event" type="button">
+                                    <img src="img/rightButton.png" alt="правая нопка" />
+                                </button>
+                            </div>
+                            <table class="calendar-event" id="calendar-event"></table>
+                            <button class="confirmation" id="confirmation" type="button">Применить</button>
+                        </div>
+                        <div class="container-for-input">
+                            <input class="details__hour" type="time" id="time-event" required />
+                            <label class="name-label " for="time-event">Время<span class="star">*</span></label>
+                        </div>
+                        <div class="container-for-input">
+                            <input class="details__place" type="text" id="place-event" required />
+                            <label class="name-label" for="place-event">Место проведения<span class="star">*</span></label>
+                        </div>
+                        <div class="details__author">
+                            <img class="author__avatar" src="img/avatar.png" alt="аватар организатора" />
+                            <div class="author__info">
+                                <p class="author__name"></p>
+                                <p class="author__position">Организатор</p>
+                            </div>
+                        </div>
+                        <div class="load-photos" id="load-photos"></div>
+                    </section>
+                </form>
+                <button class="button-create disabled" id="create-button" disabled>Создать</button>
+            </div>
+        </section>
+
+        <section class="question" id="question">
+            <div class="container-for-question">
+                <img class="close-question" src="img/closeButton.png" alt="закрыть вопрос">
+                <h3 class="question__title">Передумали создавать событие?</h3>
+                <div class="question__buttons">
+                    <button class="disagree" id="disagreeQuestion">Нет</button>
+                    <button class="agree" id="agreeQuestion">Да</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="congratulation" id="congratulationSection">
+            <div class="congratulation__content">
+                <img class="close-button-congratulation" id="closeCongratulation" src="img/closeButton.png" alt="закрыть окно" />
+                <h2 class="content__title">Ура!</h2>
+                <p class="content__new-event">Вы добавили новое событие:</p>
+                <p class="content__name">Конференция фронтенд-разработки</p>
+                <div class="content__time">
+                    <p class="time__day">суббота</p>
+                    <p class="time__date">30 сентября</p>
+                    <p class="time__clock">12:00</p>
+                </div>
+                <p class="congratulation__place">г. Москва, ул. Переяславская, д. 13</p>
+                <button class="congratulation__button" id="greatButton">Отлично</button>
+            </div>
+        </section>
+
+        <section class="invite-congratulation" id="invite-congratulation">
+            <div class="invite-congratulation__content">
+                <img class="close-button-invite" src="img/closeButton.png" alt="закрыть окно" />
+                <h2 class="invite-content__title">Поздравляем!</h2>
+                <p class="invite-content__new-event">Теперь вы участник события:</p>
+                <p class="invite-content__name">Конференция фронтенд-разработки</p>
+                <div class="invite-content__time">
+                    <p class="invite-time__day">суббота</p>
+                    <p class="invite-time__date">30 сентября</p>
+                    <p class="invite-time__clock">12:00</p>
+                </div>
+                <p class="invite-congratulation__place">г. Москва, ул. Переяславская, д. 13</p>
+                <button class="invite-congratulation__button">Отлично</button>
+            </div>
+        </section>
+
+        <section class="congratulation-join">
+            <div class="congratulation__content-join">
+                <img class="close-button-congratulation-join" src="img/closeButton.png" alt="закрыть окно" />
+                <h2 class="content__title-join">Ура!</h2>
+                <p class="content__new-event-join">Вы добавили новое событие:</p>
+                <p class="content__name-join">Конференция фронтенд-разработки</p>
+                <div class="content__time-join">
+                    <p class="time__day-join">суббота</p>
+                    <p class="time__date-join">30 сентября</p>
+                    <p class="time__clock-join">12:00</p>
+                </div>
+                <p class="congratulation__place-join">г. Москва, ул. Переяславская, д. 13</p>
+                <button class="congratulation__button-join">Отлично</button>
+            </div>
+        </section>
+    </main>
+    <script src="js/calendar.js"></script>
+    <script src="js/updateCalendar.js"></script>
+    <script src="js/createEvent.js"></script>
+</body>
+
+</html>

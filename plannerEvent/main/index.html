@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Планирование. Список  дел. Календарь. Календарный список.">
+    <meta name="description" content="Планировщик событий">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <title>planner event</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <img class="logo__image" src="img/logo.png" alt="logo company" />
+            <p class="logo__company-name">red collar</p>
+            <h1 class="logo__title">planner <span class="logo__title-red">event</span></h1>
+        </div>
+        <nav class="header__nav">
+            <p class="nav__current-month" id="currentMonthLabel"></p>
+            <button class="nav__button" id="prevMonthButton">
+                <img src="img/leftButton.png" alt="левая кнопка" />
+            </button>
+            <button class="nav__button" id="nextMonthButton">
+                <img src="img/rightButton.png" alt="правая нопка" />
+            </button>
+            <button class="nav__login-button" id="loginButton">Войти</button>
+
+            <section class="modal" id="loginModal">
+
+                <form class="modal-content" autocomplete="off">
+                    <img class="close__button" id="close-email" src="img/closeButton.png"
+                        alt="кнопка для закрытия формы регистрации">
+                    <h2 class="modal__title">Вход</h2>
+
+                    <div class="container-for-input">
+                        <input class="input__field" id="enterEmail" type="email" required>
+                        <label class="label__field" for="enterEmail">Email</label>
+                        <p class="error-message" id="error-email">Некорректный e-mail</p>
+                    </div>
+
+                    <button class="continue__button" id="continue-login__button" type="button">Далее</button>
+                </form>
+
+            </section>
+
+
+            <section class="modal" id="passwordModal">
+
+                <form class="modal-content" autocomplete="off">
+                    <img class="close__button" id="close-password" src="img/closeButton.png"
+                        alt="кнопка для закрытия формы регистрации">
+                    <h2 class="modal__title">Вход</h2>
+
+                    <div class="container-for-input">
+                        <input class="input__field" id="enterPassword" type="password" required>
+                        <label class="label__field" for="enterPassword">Пароль</label>
+                        <p class="error-message" id="error-password">Неправильно введенный логин или пароль</p>
+                    </div>
+
+                    <button class="continue__button" id="continue-password__button" type="button">Войти</button>
+                </form>
+
+            </section>
+
+            <section id="registrationModal" class="modal">
+
+                <form class="modal-content" autocomplete="off">
+                    <img class="close__button" id="close-registration" src="img/closeButton.png"
+                        alt="кнопка для закрытия формы регистрации">
+
+
+                    <h2 class="reg__title">Регистрация</h2>
+
+                    <div class="modal__info">
+                        <img class="warning__image" src="img/info.png" alt="правила написания пароля" />
+                        <p class="warning">
+                            Используйте от 8 до 32 символов:
+                            строчные и прописные латинские буквы (A-z),
+                            цифры (0-9) и спец символы ( . , : ; ? ! * + % - <> @ [ ] { } / \ _ {} $ # )
+                        </p>
+                    </div>
+
+
+                    <div class="container-for-input">
+                        <input class="input-name__field" id="name-user" type="text" required>
+                        <label class="label-name__field" for="name-user">Ваше имя</label>
+                    </div>
+
+                    <div class="container-for-input">
+                        <input class="input-password__field" id="reg-password" type="password" required>
+                        <label class="label-password__field" for="reg-password">Пароль</label>
+
+
+                        <img class="close-password__image" id="close-reg-password" src="img/closeEye.png"
+                            alt="состояние пароля">
+                        <img class="open-password__image" id="open-reg-password" src="img/openEye.png"
+                            alt="состояние пароля">
+
+                        <p class="reg__rules" id="reg__rules">Используйте латинские буквы, цифры и спец символы</p>
+                    </div>
+
+                    <div class="container-for-input">
+                        <input class="input-repeat__field" id="reg-repeat-password" type="password" required>
+                        <label class="label-repeat__field" for="reg-repeat-password">Повторите пароль</label>
+
+                        <img class="close-repeat__image" id="close-repeat-password" src="img/closeEye.png"
+                            alt="состояние пароля">
+                        <img class="open-repeat__image" id="open-repeat-password" src="img/openEye.png"
+                            alt="состояние пароля">
+                        <p class="reg__error-message" id="reg__error-message">Пароли не совпадают </p>
+                    </div>
+
+                    <button class="register__button" id="reg__button" type="button">Зарегистрироваться</button>
+
+                </form>
+
+            </section>
+
+            <section class="event" id="event__modal-section">
+                <div class="container-for-event-info" id="eventInfoContainer">
+                    <img class="close-event" id="closeEventButton" src="img/closeButton.png" alt="закрыть">
+
+                    <h2 class="event-name" id="eventNameLabel"></h2>
+
+                    <div class="description" id="eventDescription">
+                        <div class="info-event">
+                            <p class="event-time" id="eventTimeLabel"><br><br></p>
+                            <p class="event-place" id="eventPlaceLabel"></p>
+                        </div>
+                        <p class="description-text" id="eventDescriptionText">
+
+                        </p>
+                    </div>
+
+                    <h3 class="members" id="membersLabel">Участники</h3>
+                    <div class="members-people" id="membersPeopleContainer">
+
+                    </div>
+
+                    <div class="gallery">
+                        <h3 class="gallery-title" id="galleryTitleLabel">Галерея</h3>
+
+                        <div class="control">
+                            <img class="left-button" id="leftButtonGallery" 
+                                src="img/leftButton.png" 
+                                alt="щелкнуть влево"
+                                id="galleryLeftButton" />
+
+                            <img class="right-button" id="rightButtonGallery" 
+                                src="img/rightButton.png" 
+                                alt="щелкнуть вправо"
+                                id="galleryRightButton" />
+                        </div>
+
+                    </div>
+
+                    <div class="gallery-photo" id="galleryPhotoContainer">
+                        <!-- Изображения будут динамически добавлены здесь -->
+                    </div>
+
+                    <p class="event__invite-login">
+                        <button class="enter__event" id="inviteEnter">Войдите</button>
+                        , чтобы присоединиться к событию
+                    </p>
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <main class="main">
+        <table class="calendar" id="calendar">
+
+        </table>
+    </main>
+    <script src="js/calendar.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>

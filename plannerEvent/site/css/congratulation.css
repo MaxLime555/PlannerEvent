@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #0D0C0C;
+}
+
+.congratulation,
+.congratulation-join,
+.invite-congratulation {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.congratulation__content,
+.congratulation__content-join,
+.invite-congratulation__content {
+    width: 40%;
+    max-width: 770px;
+    max-height: 510px;
+    margin: 0 auto;
+    position: relative;
+    top: clamp(170px, 5px, 285px);
+    border-radius: 64px;
+    background-color: #FFFFFF;
+    background-image: url(../img/unicorn.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 250px;
+    padding-left: 40px;
+    padding-bottom: 32px;
+}
+
+.invite-congratulation__content{
+    background-image: url(../img/hand.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 150px;
+}
+
+.close-button-congratulation,
+.close-button-congratulation-join,
+.close-button-invite {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.content__title,
+.content__title-join,
+.invite-content__title {
+    display: inline-block;
+    font-family: 'Redcollar';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: clamp(40px, 50px, 88px);
+    margin-bottom: 16px;
+}
+
+.content__new-event,
+.content__new-event-join,
+.invite-content__new-event {
+    font-family: 'Redcollar';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.content__name,
+.content__name-join,
+.invite-content__name {
+    font-family: 'Redcollar';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: #F51B1B;
+    margin-bottom: 35px;
+}
+
+.content__time,
+.content__time-join,
+.invite-content__time {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Redcollar';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.time__day,
+.time__day-join,
+.invite-time__day,
+.time__date,
+.time__date-join,
+.invite-time__date,
+.time__clock,
+.time__clock-join,
+.invite-time__clock {
+    padding: 0 8px;
+    white-space: nowrap;
+}
+
+.time__day,
+.time__day-join {
+    padding-left: 0;
+}
+
+.time__clock,
+.time__clock-join,
+.invite-time__clock {
+    padding-right: 0;
+}
+
+.time__date,
+.time__date-join,
+.invite-time__date {
+    border-right: 1px solid #B3B3BC;
+    border-left: 1px solid #B3B3BC;
+}
+
+.congratulation__place,
+.congratulation__place-join,
+.invite-congratulation__place {
+    font-family: 'TT Commons';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.congratulation__button,
+.congratulation__button-join,
+.invite-congratulation__button {
+    border: none;
+    background-color: #0D0C0C;
+    border-radius: 12px;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+
+
+@media (min-width: 1369px) and (max-width: 1600px) {
+
+    .close-button-congratulation,
+    .close-button-congratulation-join {
+        top: 30px;
+        right: 30px;
+    }
+
+    .congratulation__content,
+    .congratulation__content-join {
+        padding-left: 60px;
+        padding-bottom: 48px;
+        background-size: 300px;
+    }
+
+    .content__title,
+    .content__title-join {
+        font-size: 52px;
+    }
+
+    .content__name,
+    .content__name-join {
+        margin-bottom: 50px;
+    }
+
+    .content__time,
+    .content__time-join {
+        font-size: 16px;
+    }
+
+    .time__day,
+    .time__day-join,
+    .time__date,
+    .time__date-join,
+    .time__clock,
+    .time__clock-join {
+        padding: 0 12px;
+    }
+
+    .time__day,
+    .time__day-join {
+        padding-left: 0;
+    }
+
+    .time__clock,
+    .time__clock-join {
+        padding-right: 0;
+    }
+
+    .congratulation__place,
+    .congratulation__place-join {
+        margin-bottom: 30px;
+    }
+
+    .congratulation__button,
+    .congratulation__button-join {
+        padding: 16px 28px;
+    }
+}
+
+@media (min-width: 1600px) {
+
+    .close-button-congratulation, 
+    .close-button-congratulation-join{
+        top: 40px;
+        right: 40px;
+    }
+
+    .congratulation__content,
+    .congratulation__content-join {
+        padding-left: 80px;
+        padding-bottom: 64px;
+        background-size: 350px;
+    }
+
+    .content__title,
+    .content__title-join {
+        font-size: 64px;
+    }
+
+    .content__name,
+    .content__name-join {
+        margin-bottom: 60px;
+    }
+
+    .content__time,
+    .content__time-join {
+        font-size: 18px;
+    }
+
+    .time__day,
+    .time__day-join,
+    .time__date,
+    .time__date-join,
+    .time__clock,
+    .time__clock-join {
+        padding: 0 16px;
+    }
+
+    .time__day,
+    .time__day-join {
+        padding-left: 0;
+    }
+
+    .time__clock,
+    .time__clock-join {
+        padding-right: 0;
+    }
+
+    .congratulation__place,
+    .congratulation__place-join {
+        margin-bottom: 40px;
+    }
+
+    .congratulation__button,
+    .congratulation__button-join {
+        padding: 21px 32px;
+    }
+}
